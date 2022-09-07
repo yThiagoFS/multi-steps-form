@@ -31,17 +31,17 @@ const formReducer = (state: State, action: Action) => {
             return { ...state, currentStep: action.payload }
 
         case FormActions.setName:
-            return { ...state, setName: action.payload }
+            return { ...state, name: action.payload }
 
         case FormActions.setLevel:
-            return { ...state, setEmail: action.payload }
+            return { ...state, level: action.payload }
 
         case FormActions.setEmail:
-            return { ...state, setEmail: action.payload }
+            return { ...state, email: action.payload }
 
 
         case FormActions.setGitHub:
-            return { ...state, currentStep: action.payload }
+            return { ...state, github: action.payload }
 
         default:
             return state

@@ -1,20 +1,23 @@
 import * as SC from "./styles"
-import { useState, useEffect } from "react"
+import { ChangeEvent,useState, useEffect } from "react"
 import { Theme } from "../../components/Theme"
 import { useNavigate } from "react-router-dom"
 import { useForm, FormActions } from "../../contexts/FormContext"
 
 export const FirstStep = () => {
     const { state, dispatch } = useForm()
-    const [nameInput, setNameInput] = useState(state.name)
     const navigate = useNavigate()
 
     useEffect(() => {
-        dispatch({type: FormActions.setName, payload: nameInput})
-    }, [nameInput])
-    
+        dispatch({type: FormActions.setCurrentStep, payload: 1})
+    }, [])
+
     const handleNextStep = () => {
-        navigate('/step2')
+        if(state.name !== ''){
+            navigate('/step2')
+        } else {
+            alert('Preencha o campo antes de continuar!')
+        }
     }
     return (
         <Theme>
@@ -28,8 +31,8 @@ export const FirstStep = () => {
                     <input
                         type="text"
                         autoFocus
-                        value={nameInput}
-                        onChange={e => setNameInput(e.target.value)}
+                        value={state.name}
+                        onChange={e => dispatch({type: FormActions.setName, payload: e.target.value})}
                     />
                 </label>
 

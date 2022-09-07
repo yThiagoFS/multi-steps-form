@@ -1,6 +1,8 @@
 import * as SC from "./styles"
 export const Header = () => {
-    return(
-        <div>Header</div>
+    return (
+        <SC.Header>
+            Header
+        </SC.Header>
     )
 }

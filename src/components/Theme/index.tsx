@@ -14,7 +14,7 @@ export const Theme = ({ children }: ThemeProps) => {
 
                 <SC.Steps>
                     <SC.SideBar>
-
+                        ...
                     </SC.SideBar>
                     <SC.Page>
                         { children }
